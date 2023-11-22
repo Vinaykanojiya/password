@@ -1,0 +1,32 @@
+<div class="contaner">
+  <div class="card" style="width: 25rem; margin: 10rem auto;">
+    <div class="card-body">
+      <h2 class="text-primary text-center mb-4">Password Generator</h2>
+       <div>
+          <label class="form-label">Enter Number </label>
+          <input class="form-control" #input (keyup)="getlength(input.value)" autofocus>
+       </div>
+         <div class="form-check">
+            <input class="form-check-input" type="checkbox" id="in" (change)="IncludeNumber()">
+            <label class="form-check-label" for="in" >Include Number</label>
+         </div>
+             <div class="form-check">
+                <input class="form-check-input" type="checkbox"id="ic" (change)="IncludeCharacter()">
+                <label class="form-check-label" for="ic" >Include Characters</label>
+             </div>
+               <div class="form-check">
+                  <input class="form-check-input" type="checkbox" id="is" (change)="Includesymbol()">
+                  <label class="form-check-label" for="is" >Include symbols </label>
+               </div>
+     </div>
+         <div class="d-grid gap-2 col-6 mx-auto">
+           <button type="button" class="btn btn-outline-primary" style="width: 100%;" (click)="genpass()" [disabled]="!passlength">Generate!</button>
+         </div>
+           <div class="mb-3" *ngIf="generatedpass">
+             
+             <label class="form-label">Generated Password</label>
+             <input type="text" class="form-control" value="{{generatedpass}}">
+           </div>
+         
+  </div>
+</div>
